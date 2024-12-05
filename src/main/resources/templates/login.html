@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<title>login</title>
+<style type="text/css">
+.loginContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(images/loginBackground.png);
+    background-size: cover;
+    height: 540px;
+    margin-left: -10px;
+    margin-right: -8px;
+}
+
+</style>
+<link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+
+<body>
+	<div class="navbar">
+		<div class="buttons">
+			<img src="images/logo.png" alt="logo" class="logo"> <a
+				href="/home" class="homebutton">Home</a> <a href="/about"
+				class="aboutus">About Us</a> <a href="/contact" class="contactus">Contact
+				Us</a>
+			<div class="searcharea">
+				<input type="text" class="search" placeholder="Search..."></input> <a
+					href="/search"><img src="images/search.png"
+					class="searchicon" alt="search"></a>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="loginContainer">
+		<div class="loginbox">
+			<span class="loginheader">LOGIN</span> <br>
+			<p th:if="${error}" style="color: red; margin-top: -10px;" th:text="${error}"></p>
+          <p th:if="${success}" style="color: green; margin-top: -10px;" th:text="${success}"></p>
+			<form action="" method="post">
+			
+				<label for="email">Email:</label> <br> <input type="email"
+					name="email" id="email" required class="inputs"> <br>
+				<br> <br> <label for="password">Password</label> <br>
+				<input type="password" name="password" id="password" required
+					class="inputs"> <br> <br> <br>
+				<button type="submit" class="loginbutton">Login</button>
+				<br> <br>
+			</form>
+			<span>Don't have an account? <a href="/signup" class="signup">Sign Up</a>
+			</span>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="topfooter">
+			<img src="images/logo.png" alt="logo" class="footerlogo">
+			<div class="contact">
+				<span style="font-weight: bold;"> Contact Information </span> <br>
+				<span> Phone: 111111 </span> <br> <span> Email:
+					email@email.com </span> <br>
+				<br> <img src="images/fbinsta.png" alt="" class="fbinsta">
+			</div>
+			<div class="creators">
+				<span style="font-weight: bold;"> Website designed by </span> <br>
+				<span> Utsav Kattel & Nilesh Guragain </span>
+			</div>
+		</div>
+
+		<div class="whiteline"></div>
+		<div class="footerfoot">
+			<span> ©2024 by Gaminator | All rights Reserved | </span>
+		</div>
+
+	</div>
+
+
+</body>
+
+</html>s

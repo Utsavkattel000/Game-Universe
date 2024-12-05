@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" href="css/gamesforcodes.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="buttons">
+            <img src="images/logo.png" alt="logo" class="logo">
+        </div>
+        <div class="searcharea">
+                <input type="text" class="search" placeholder="Search..."></input>
+                <a href="/search"><img src="images/search.png" class="searchicon" alt="search"></a>
+            </div>
+    </div>
+
+
+        <div th:each="chunk : ${partitionedGames}" class="games-container">
+            <div class="games">
+                <a th:each="game : ${chunk}" th:href="@{/gameinfo(id=${game.id})}" class="game">
+                    <img th:src="@{${game.imagePath}}" alt="" class="image">
+                </a>
+            </div>
+        </div>
+
+
+    <div class="footer">
+        <div class="topfooter">
+            <img src="images/logo.png" alt="logo" class="footerlogo">
+            <div class="contact">
+                <span>Contact Information</span><br>
+                <span>Phone: 111111</span><br>
+                <span>Email: email@email.com</span><br><br>
+                <img src="fbinsta.png" alt="" class="fbinsta">
+            </div>
+            <div class="creators">
+                <span>Website designed by</span><br>
+                <span>Utsav Kattel & Nilesh Guragain</span>
+            </div>
+        </div>
+
+        <div class="whiteline"></div>
+
+        <div class="footerfoot">
+            <span>©2024 by Gaminator | All rights Reserved |</span>
+        </div>
+    </div>
+</body>
+
+</html>

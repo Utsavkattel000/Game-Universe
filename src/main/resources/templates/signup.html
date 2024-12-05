@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title>signup</title>
+    <style type="text/css">
+    .loginContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(images/signupBackground.png);
+    background-size: cover;
+    background-position: bottom;
+    height: 540px;
+    margin-left: -10px;
+    margin-right: -8px;
+}
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/signup.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="buttons">
+            <img src="images/logo.png" alt="logo" class="logo">
+            <a href="/home" class="homebutton">Home</a>
+            <a href="/about" class="aboutus">About Us</a>
+            <a href="/contact" class="contactus">Contact Us</a>
+            <div class="searcharea">
+                <input type="text" class="search" placeholder="Search..."></input>
+                <a href="/search"><img src="images/search.png" class="searchicon" alt="search"></a>
+            </div>
+        </div>
+    </div>
+    <div class="loginContainer">
+        <div class="loginbox">
+            <span class="loginheader">SIGNUP</span>
+            <p th:if="${error}" style="color: red; margin-top: -10px;" th:text="${error}"></p>
+          <p th:if="${success}" style="color: green; margin-top: -10px;" th:text="${success}"></p>
+            <br>
+            <form action="/signup" method="post">
+                <div class="horizental">
+                    <div class="labelgroup">
+                        <label for="name">Full Name</label>
+                        <br>
+                        <input type="text" name="fullName" id="name" required class="inputs">
+                    </div>
+                    <div class="labelgroup">
+                        <label for="phone">Phone</label>
+                        <br>
+                        <input type="text" name="phone" id="phone" required class="inputs">
+                    </div>
+
+                </div>
+                <div class="horizental">
+                    <div class="labelgroup">
+                        <label for="email">Email:</label>
+                        <br>
+                        <input type="email" name="email" id="email" required class="inputs">
+                    </div>
+                    <div class="labelgroup">
+                        <label for="password">Password</label>
+                        <br>
+                        <input type="password" name="password" id="password" required class="inputs">
+                    </div>
+
+
+                </div>
+                <div class="horizental">
+                    <div class="labelgroup">
+                        <label for="password2">Retype Password</label>
+                        <br>
+                        <input type="password" name="password2" id="password2" class="inputs" required>
+                    </div>
+
+                    <button type="submit" class="loginbutton">Sign Up</button>
+                </div>
+
+            </form>
+            <span>Already have an account?
+                <a href="/login" class="signup">Login</a>
+            </span>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="topfooter">
+            <img src="images/logo.png" alt="logo" class="footerlogo">
+            <div class="contact">
+                <span style="font-weight: bold;">
+                    Contact Information
+                </span>
+                <br>
+                <span>
+                    Phone: 111111
+                </span>
+                <br>
+                <span>
+                    Email: email@email.com
+                </span>
+                <br><br>
+                <img src="images/fbinsta.png" alt="" class="fbinsta">
+            </div>
+            <div class="creators">
+                <span style="font-weight: bold;">
+                    Website designed by
+                </span>
+                <br>
+                <span>
+                    Utsav Kattel & Nilesh Guragain
+                </span>
+            </div>
+        </div>
+
+        <div class="whiteline">
+
+        </div>
+        <div class="footerfoot">
+            <span>
+                ©2024 by Gaminator | All rights Reserved |
+            </span>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

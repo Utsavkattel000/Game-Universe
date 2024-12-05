@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title>Game Info</title>
+    <link rel="stylesheet" type="text/css" href="css/gameinfo.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <img src="images/logo.png" alt="logo" class="logo">
+    </div>
+    <div class="super-container">
+        <div class="container">
+            <div class="maininfos">
+                <img th:src="@{${game.imagePath}}" alt="" class="thumbnail">
+                <div>
+                    <span th:text="${game.name}"></span>
+                    <br>
+                    <img src="images/5star.png" alt="" class="star">
+                    <div class="infos">
+                        <span class="info">Company |</span>
+                        <span class="information" th:text="${game.company}"></span>
+                        <br>
+                        <span class="info">Release Date |</span>
+                        <span th:text="${#temporals.format(game.releaseDate, 'yyyy')}" class="information"></span>
+                        <br>
+                        <span class="information" th:text="'Rs. ' + ${game.price}"></span>
+                        <br>
+                        <span class="info">Genre |</span>
+                        <span class="information" th:text="${game.genre}"></span>
+                        <br>
+                        <span class="info">Size |</span>
+                        <span class="information" th:text="${game.size + ' GB'}"></span>
+                        <br>
+                        <span class="info">Platform |</span>
+                        <span class="information" th:text="${game.platform}"></span>
+                    </div>
+                    <a th:href="@{'/buy?id=' + ${game.id}}" class="buy">BUY NOW</a>
+                </div>
+            </div>
+            <span class="description" th:utext="${game.description}">
+                <!-- This will be replaced by the backend description -->
+            </span>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="topfooter">
+            <img src="images/logo.png" alt="logo" class="footerlogo">
+            <div class="contact">
+                <span>Contact Information</span>
+                <br>
+                <span>Phone: 111111</span>
+                <br>
+                <span>Email: email@email.com</span>
+                <br><br>
+                <img src="images/fbinsta.png" alt="" class="fbinsta">
+            </div>
+            <div class="creators">
+                <span>Website designed by</span>
+                <br>
+                <span>Utsav Kattel & Nilesh Guragain</span>
+            </div>
+        </div>
+        <div class="whiteline"></div>
+        <div class="footerfoot">
+            <span>©2024 by Gaminator | All rights Reserved |</span>
+        </div>
+    </div>
+</body>
+
+</html>
