@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Homepage</title>
+    <title>homepage</title>
     <style type="text/css">
      .homebutton {
      max-height: 40px;
@@ -44,10 +44,14 @@
             <a href="/home" class="homebutton">Home</a>
             <a href="/about" class="aboutus">About Us</a>
             <a href="/contact" class="contactus">Contact Us</a>
-            <div class="searcharea">
-                <input type="text" class="search" placeholder="Search..."></input>
-                <a href="/search"><img src="images/search.png" class="searchicon" alt="search"></a>
-            </div>
+            <form id="searchForm" action="/search" method="get">
+				<div class="searcharea">
+					<input type="text" class="search" placeholder="Search..." name="gamename"></input> 
+					<a href="javascript:void(0);" onclick="document.getElementById('searchForm').submit();"> 
+						<img src="images/search.png" class="searchicon" alt="search">
+					</a>
+				</div>
+			</form>
             <a href="/login" class="login">LOGIN</a>
         </div>
     </div>
@@ -57,22 +61,22 @@
             <video autoplay muted loop src="videos/Play hard.mp4" class="background-video"></video>
         </div>
 
-        <a href="" class="play">
+        <a href="/exploregames" class="play">
             <div class="text">Play Now</div>
         </a>
     </div>
     <div class="games">
-        <a href="/gtav" class="gta">
+        <a href="/exploregames" class="gta">
             <img src="images/gtav.png" alt="" class="gtav">
         </a>
         <br>
-        <a href="/minecraft" class="mine">
+        <a href="/exploregames" class="mine">
             <img src="images/minecraft.png" alt="" class="minecraft">
         </a>
-        <a href="/rdr2" class="rdr">
+        <a href="/exploregames" class="rdr">
             <img src="images/rdr2.png" alt="" class="rdr2">
         </a>
-        <a href="/more" class="mores">
+        <a href="/exploregames" class="mores">
             <img src="images/more.png" alt="" class="more">
         </a>
     </div>
@@ -93,7 +97,7 @@
             <br><br>
             With the Gaminator Guarantee promise, you can purchase video games with confidence.
             <br><br>
-            <a href="/aboutus" class="readmore">Read more></a>
+            <a href="/about" class="readmore">Read more></a>
         </div>
     </div>
     <section class="conveyer-belt">

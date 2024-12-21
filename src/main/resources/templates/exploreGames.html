@@ -2,29 +2,36 @@
 <html xmlns:th="https://www.thymeleaf.org">
 
 <head>
-    <title>Homepage</title>
+    <title>exploreGames</title>
     <link rel="stylesheet" type="text/css" href="css/gamesforcodes.css">
 </head>
 
 <body>
     <div class="navbar">
-        <div class="buttons">
+     <div class="buttons">
             <img src="images/logo.png" alt="logo" class="logo">
         </div>
-        <div class="searcharea">
-                <input type="text" class="search" placeholder="Search..."></input>
-                <a href="/search"><img src="images/search.png" class="searchicon" alt="search"></a>
-            </div>
+       <form id="searchForm" action="/search" method="get">
+				<div class="searcharea">
+					<input type="text" class="search" placeholder="Search..." name="gamename"></input> 
+					<a href="javascript:void(0);" onclick="document.getElementById('searchForm').submit();"> 
+						<img src="images/search.png" class="searchicon" alt="search">
+					</a>
+				</div>
+			</form>
     </div>
+       
 
-
-        <div th:each="chunk : ${partitionedGames}" class="games-container">
+       <div class="dov">
+       <div th:each="chunk : ${partitionedGames}" class="games-container">
             <div class="games">
                 <a th:each="game : ${chunk}" th:href="@{/gameinfo(id=${game.id})}" class="game">
                     <img th:src="@{${game.imagePath}}" alt="" class="image">
                 </a>
             </div>
         </div>
+       </div>
+        
 
 
     <div class="footer">

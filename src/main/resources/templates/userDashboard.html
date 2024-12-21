@@ -2,33 +2,169 @@
 <html xmlns:th="https://www.thymeleaf.org">
 
 <head>
-<title>User Dashboard</title>
-<link rel="stylesheet" type="text/css">
+<title>userDashboard</title>
+<link rel="stylesheet" type="text/css" href="css/userdashboard.css">
 </head>
 
 <body>
-<br>
-<p th:if="${username}" style="color: green; margin-top: -10px;" th:text="${username}"></p>
-	<br>
-	<a href="/exploregames" style="text-decoration: none; color: black;">Explore
-		games</a>
-	<br>
-	<br>
-	<a href="" style="text-decoration: none; color: black;">Purchase
-		History</a>
-	<br>
-	<br>
-	<a href="" style="text-decoration: none; color: black;">Profile</a>
-	<br>
-	<br>
-	<a href="/logout">Logout</a>
-	<br>
-	<br>
-	<form action="/search" method="post">
-		<input type="text" placeholder="Type game name" required>
-		<button type="submit">Search</button>
-	</form>
+	<div class="navbar">
+		<div class="buttons">
+			<img src="images/logo.png" alt="logo" class="logo"> <a
+				href="/history" class="history">Purchase History</a>
+			<form id="searchForm" action="/search" method="get">
+				<div class="searcharea">
+					<input type="text" class="search" placeholder="Search..." name="gamename"></input> 
+					<a href="javascript:void(0);" onclick="document.getElementById('searchForm').submit();"> 
+						<img src="images/search.png" class="searchicon" alt="search">
+					</a>
+				</div>
+			</form>
+			<div class="profileshowcase">
+				<img src="images/profile.png" alt="profile" class="profile"> 
+				<span class="hi"> Hi, <span th:text="${session.user.fullName}"></span>
+              </span>
+			</div>
+			<a href="/logout" class="login">LOGOUT <img
+				src="images/logout.png" alt="" class="logout">
+			</a>
+		</div>
+	</div>
 
+	<div class="backgroundvideo">
+		<div class="color">
+			<video autoplay muted loop src="videos/Play hard.mp4"
+				class="background-video"></video>
+		</div>
+
+		<a href="/exploregames" class="play">
+			<div class="text">Play Now</div>
+		</a>
+	</div>
+	<div style="text-align: center; margin-top: 30px;">
+	<p th:if="${error}" style="color: red; font-size: larger;"
+		th:text="${error}"></p>
+	<p th:if="${success}" style="color: green; font-size: larger;"
+		th:text="${success}"></p>
+	</div>
+	
+	<div class="texts">
+		<h1 class="cheapgames">WELCOME GAMER</h1>
+		<img src="images/right.png" alt="img" class="right">
+		<video src="videos/video.mp4" autoplay loop muted class="secondvideo"></video>
+		<div class="explanation">
+			Gaminator has a wide selection of games at discount directly from
+			other gamers. <br> <br> Find the best deals on video games
+			across all platforms. Get the latest titles on Xbox One, PS4,
+			Nintendo Wii U, Steam or catch up on your favorite classic franchises
+			on retro consoles. Whether it's brand new, pre-owned, physical or
+			digital, you'll be able find them all on Gameflip. <br> <br>
+			Simply search or browse game using our website. Our marketplace has a
+			wide selection from many sellers. With digital and auto-delivery
+			option, you can receive the game CD key immediately after purchase. <br>
+			<br> With the Gaminator Guarantee promise, you can purchase
+			video games with confidence. <br> <br> <a href="/aboutus"
+				class="readmore">Read more></a>
+		</div>
+	</div>
+	<section class="conveyer-belt">
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+	</section>
+	<div class="works">
+		<img src="images/line.png" alt=""> <span class="how">HOW
+			IT WORKS</span> <img src="images/line.png" alt="">
+	</div>
+	<div class="howitworks">
+		<span class="spanss"> <span class="span"> 1. FIND IT </span> <br>
+			<br> Search or browse games from our wide selection. Check daily
+			for great deals.
+		</span> <span class="spans"> <span class="span"> 2. BUY IT </span> <br>
+			<br> Search or browse games from our wide selection. Check daily
+			for great deals.
+		</span> <span class="spanss"> <span class="span"> 3. COMPLETE
+				TRANSACTION </span> <br> <br> Receive the item and complete the
+			transaction. You can also optionally rate the seller.
+		</span>
+	</div>
+	<div class="longline"></div>
+
+	<div class="colorrectangle">
+		<div class="safeandsecure">
+			<img src="images/safeandsecure.png" alt="" class="safeandsecureimg">
+			<br> <span>SAFE & SECURE</span> <br> <span>Gaminator
+				Guarantee is at NO additional cost to you, so you will get the item
+				as described or your money back</span>
+		</div>
+		<img src="images/verticalwhiteline.png" alt=""
+			class="verticalwhiteline">
+		<div class="buywithconfidence">
+			<img src="images/buywithconfidence.png" alt=""
+				class="buywithconfidenceimg"> <br> <span> Buy with
+				Confidence </span> <br> <span> You can compare prices, view
+				ratings & reviews and even negotiate directly with every seller to
+				get the best deal when making your purchase. </span>
+		</div>
+		<img src="images/verticalwhiteline.png" alt=""
+			class="verticalwhiteline">
+		<div class="buyfromanywhere">
+			<img src="images/buyfromanywhere.png" alt=""
+				class="buyfromanywhereimg"> <br> <span>Buy from
+				Anywhere</span> <br> <span> Don't miss out great deals no
+				matter where you're at with our iOS and Android app. We're the only
+				digital marketplace on both PC or mobile. </span>
+		</div>
+	</div>
+
+	<section class="conveyer-belt">
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+		<p class="loop-text">Gaminator</p>
+	</section>
+	<img src="images/egirl.png" alt="egirl" class="egirl">
+	<div class="footer">
+		<div class="topfooter">
+			<img src="images/logo.png" alt="logo" class="footerlogo">
+			<div class="contact">
+				<span> Contact Information </span> <br> <span> Phone:
+					111111 </span> <br> <span> Email: email@email.com </span> <br> <br>
+				<img src="images/fbinsta.png" alt="" class="fbinsta">
+			</div>
+			<div class="creators">
+				<span> Website designed by </span> <br> <span> Utsav
+					Kattel & Nilesh Guragain </span>
+			</div>
+		</div>
+
+		<div class="whiteline"></div>
+
+		<div class="footerfoot">
+			<span> ©2024 by Gaminator | All rights Reserved | </span>
+		</div>
+
+	</div>
 </body>
 
 </html>

@@ -1,72 +1,119 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Game Code Entry</title>
-<script>
-    // JavaScript to dynamically adjust the number of code fields
-    function updateCodeFields() {
-        const select = document.getElementById("numberofcodes");
-        const codeContainer = document.getElementById("codeContainer");
-
-        // Clear previous code fields
-        codeContainer.innerHTML = "";
-
-        // Generate new code fields based on selection
-        const numberOfCodes = select.value || 1; // Ensure at least one code field
-        for (let i = 1; i <= numberOfCodes; i++) {
-            const input = document.createElement("input");
-            input.type = "text";
-            input.required = true;
-            input.placeholder = "Code" + i;
-            input.name = "codes"; // Set all inputs to have the name "codes" for array binding in the backend
-            codeContainer.appendChild(input);
-            codeContainer.appendChild(document.createElement("br"));
-        }
-    }
-
-    // Ensure at least one input field is displayed on page load
-    document.addEventListener("DOMContentLoaded", function() {
-        const select = document.getElementById("numberofcodes");
-        select.value = 1; // Default to 1 code field
-        updateCodeFields();
-    });
-</script>
-
+  <title>addCode</title>
+  <link rel="stylesheet" type="text/css" href="css/addcodes.css">
 </head>
+
 <body>
+  <div class="navbar">
+    <div class="buttons">
+      <img src="images/logo.png" alt="logo" class="logo">
+      <div class="profileshowcase">
+        <img src="images/profile.png" alt="profile" class="profile">
+        <span class="hi">Hi, admin</span>
+      </div>
+      <a href="/logout" class="login">LOGOUT <img src="images/logout.png" alt="" class="logout"> </a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="sub-container">
+      <form th:action="@{/addcodefinal}" th:method="post">
+        <h2>Enter Codes for <span th:text="${game.name}">Game Name</span></h2>
+        <input type="hidden" name="gameid" th:value="${game.id}" readonly>
+        <p style="font-size: large;">Select the number of codes you want to add</p>
+        <select id="numberofcodes" name="numberofcodes" onchange="updateCodeFields()" class="selectit">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+        <br>
+        <br>
+        <div id="codeContainer">
 
-<h2>Enter Codes for <span th:text="${game.name}">Game Name</span></h2>
-
-<form th:action="@{/addcodefinal}" th:method="post">
-
-    <!-- Hidden input field for game ID -->
-    <input type="hidden" name="gameid" th:value="${game.id}" readonly>
-
-    <!-- Dropdown to select number of codes -->
-    <label for="numberofcodes">Select the number of codes you want to add</label>
-    <br>
-    <br>
-    <select id="numberofcodes" name="numberofcodes" onchange="updateCodeFields()">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-    </select>
-    <br>
-    <br>
-    <!-- Container for dynamically generated code input fields -->
-    <div id="codeContainer">
-        <!-- JavaScript will inject code fields here -->
+        </div>
+        <button type="submit" class="youaregettingbuttoned">SUBMIT</button>
+      </form>
     </div>
 
-    <button type="submit">Submit</button>
-</form>
+  </div>
+  <div class="footer">
+    <div class="topfooter">
+      <img src="images/logo.png" alt="logo" class="footerlogo">
+      <div class="contact">
+        <span>
+          Contact Information
+        </span>
+        <br>
+        <span>
+          Phone: 111111
+        </span>
+        <br>
+        <span>
+          Email: email@email.com
+        </span>
+        <br><br>
+        <img src="images/fbinsta.png" alt="" class="fbinsta">
+      </div>
+      <div class="creators">
+        <span>
+          Website designed by
+        </span>
+        <br>
+        <span>
+          Utsav Kattel & Nilesh Guragain
+        </span>
+      </div>
+    </div>
 
+    <div class="whiteline">
+
+    </div>
+
+    <div class="footerfoot">
+      <span>
+        ©2024 by Gaminator | All rights Reserved |
+      </span>
+    </div>
+
+  </div>
 </body>
+<script>
+  // JavaScript to dynamically adjust the number of code fields
+  function updateCodeFields() {
+    const select = document.getElementById("numberofcodes");
+    const codeContainer = document.getElementById("codeContainer");
+
+    // Clear previous code fields
+    codeContainer.innerHTML = "";
+
+    // Generate new code fields based on selection
+    const numberOfCodes = select.value || 1; // Ensure at least one code field
+    for (let i = 1; i <= numberOfCodes; i++) {
+      const input = document.createElement("input");
+      input.type = "text";
+      input.required = true;
+      input.placeholder = "Code" + i;
+      input.name = "codes"; // Set all inputs to have the name "codes" for array binding in the backend
+      input.className = "inputfields";
+      codeContainer.appendChild(input);
+      codeContainer.appendChild(document.createElement("br"));
+    }
+  }
+
+  // Ensure at least one input field is displayed on page load
+  document.addEventListener("DOMContentLoaded", function () {
+    const select = document.getElementById("numberofcodes");
+    select.value = 1; // Default to 1 code field
+    updateCodeFields();
+  });
+</script>
+
 </html>

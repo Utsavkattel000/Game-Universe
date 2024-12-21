@@ -24,14 +24,33 @@ public class UserController {
 	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
 	@GetMapping({ "/", "/home" })
-	public String homepage() {
-
+	public String homepage(HttpSession session) {
+       if(session.getAttribute("admin")!=null) {
+    	   return "redirect:/adminDashboard";
+       }
+       if(session.getAttribute("user")!=null) {
+    	   session.removeAttribute("purchaseattemptgame");
+    	   return "redirect:/userDashboard";
+       }
+       System.out.println("incoming connections");
+       session.removeAttribute("purchaseattemptgame");
 		return "homepage";
 	}
 
+	@GetMapping("/about")
+	public String aboutus() {
+		
+		return "aboutus";
+	}
+	
 	@GetMapping("/login")
-	public String login() {
-
+	public String login(HttpSession session) {
+		if(session.getAttribute("admin")!=null) {
+	    	   return "redirect:/adminDashboard";
+	       }
+	       if(session.getAttribute("user")!=null) {
+	    	   return "redirect:/userDashboard";
+	       }
 		return "login";
 	}
 
@@ -40,22 +59,30 @@ public class UserController {
 			RedirectAttributes attribute, HttpSession session) {
 		User user= userService.getByEmail(email);
 		if (user== null) {
+			session.removeAttribute("user");
+			session.removeAttribute("admin");
 			attribute.addFlashAttribute("error", "User does not exists.");
             return "redirect:/login";
 		}
 		if(!userService.verifyPassword(password, user, encoder)) {
+			session.removeAttribute("user");
+			session.removeAttribute("admin");
 			attribute.addFlashAttribute("error", "Incorrect Password");
 			return "redirect:/login";
 		}
 		if(user.getRole().equals("admin")) {
+			session.removeAttribute("user");
 			session.setAttribute("admin", user);
+			
 			return "redirect:/adminDashboard";
 		}
 		if(session.getAttribute("purchaseattemptgame")!=null) {
+			session.removeAttribute("admin");
 			session.setAttribute("user", user);
 			Long id = (Long) session.getAttribute("purchaseattemptgame");
 			return "redirect:/buy?id=" + id;
 		}
+		session.removeAttribute("admin");
 		session.setAttribute("user", user);
 		return "redirect:/userDashboard";
 	}
@@ -68,6 +95,7 @@ public class UserController {
 
 	@PostMapping("/signup")
 	public String postSignup(@ModelAttribute User user, RedirectAttributes attribute) {
+		
 		if (!user.getPassword().equals(user.getPassword2())) {
 			attribute.addFlashAttribute("error", "Password does not match.");
 			return "redirect:/signup";
@@ -90,6 +118,7 @@ public class UserController {
 			attribute.addFlashAttribute("error", "Please login");
 			return "redirect:/login";
 		}
+		session.removeAttribute("purchaseattemptgame");
 		User user =(User) session.getAttribute("user");
 		model.addAttribute("username", user.getFullName());
 		return "userDashboard";

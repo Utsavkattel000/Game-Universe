@@ -2,21 +2,85 @@
 <html lang="en">
 
 <head>
+    <title>buyerinfo</title>
+    <link rel="stylesheet" type="text/css" href="css/checkout.css">
 </head>
 
 <body>
-   <form action="/buyerinfo" method="post">
-     <input type="text" placeholder="Redeem Code Delivery Email Address" name="email" required>
-     <br>
-     <br>
-     <select name="paymentmethod" id="" required>
-        <option value="esewa">Esewa</option>
-        <option value="imepay">IMEPay</option>
-      
-     </select>
-     <button type="submit">Submit</button>
+    <div class="navbar">
+        <div class="buttons">
+            <img src="images/logo.png" alt="logo" class="logo">
+        </div>
+    </div>
 
-   </form>
+
+    <div class="loginContainer">
+        <div class="loginbox">
+            <span class="loginheader">CHECKOUT</span>
+            <br><br>
+            <form action="/buyerinfo" method="post">
+                <div class="inputarea">
+                    <label for="email">Receiver Email Address</label>
+                    <br>
+                    <input type="email" class="inputs" name="email" id="email" required>
+                    <br>
+                    <label>Payment method:</label>
+                    <br>
+                    <div>
+                        <label for="esewa">E-Sewa</label>
+                    <input id="esewa" type="radio" name="paymentmethod" value="esewa" checked>
+                    <label for="imepay" class="ime">IME Pay</label>
+                    <input type="radio" id="imepay" name="paymentmethod" value="imepay">
+                    </div>
+                    <br>
+                    <button type="submit" class="loginbutton">Next</button>
+                    
+                </div>
+
+            </form> 
+        </div>
+    </div>
+    <div class="footer">
+        <div class="topfooter">
+            <img src="images/logo.png" alt="logo" class="footerlogo">
+            <div class="contact">
+                <span style="font-weight: bold;">
+                    Contact Information
+                </span>
+                <br>
+                <span>
+                    Phone: 111111
+                </span>
+                <br>
+                <span>
+                    Email: email@email.com
+                </span>
+                <br><br>
+                <img src="images/fbinsta.png" alt="" class="fbinsta">
+            </div>
+            <div class="creators">
+                <span style="font-weight: bold;">
+                    Website designed by
+                </span>
+                <br>
+                <span>
+                    Utsav Kattel & Nilesh Guragain
+                </span>
+            </div>
+        </div>
+
+        <div class="whiteline">
+
+        </div>
+        <div class="footerfoot">
+            <span>
+                ©2024 by Gaminator | All rights Reserved |
+            </span>
+        </div>
+
+    </div>
+
+
 </body>
 
 </html>

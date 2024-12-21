@@ -1,52 +1,88 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<title>User Dashboard</title>
-<link rel="stylesheet" type="text/css" href="css/gamesForCode.css">
+  <title>adminDashboard</title>
+  <link rel="stylesheet" type="text/css" href="css/adminDashboard.css">
 </head>
 
 <body>
-	<p th:if="${adminName}" style="color: green; "
+  <div class="navbar">
+    <div class="buttons">
+      <img src="images/logo.png" alt="logo" class="logo">
+      <div class="profileshowcase">
+        <img src="images/profile.png" alt="profile" class="profile">
+        <p th:if="${adminName}" class="hi"
 		th:text="${adminName}"></p>
+      </div>
+      <a href="/logout" class="login">LOGOUT <img src="images/logout.png" alt="" class="logout"> </a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="sub-container">
+	
+      <form id="searchForm" action="/search" method="get">
+      <p th:if="${error}" style="color: red;" th:text="${error}"></p>
+	  <p th:if="${success}" style="color: green;" th:text="${success}"></p>
+        <div class="searcharea">
+          <input type="text" class="search" placeholder="Search..." name="gamename"></input>
+          <a href="javascript:void(0);" onclick="document.getElementById('searchForm').submit();">
+            <img src="images/search.png" class="searchicon" alt="search">
+          </a>
+        </div>
+      </form>
+      <div class="groupedbutton">
+        <div class="buttonit" style="margin-left: 50px;">
+          <a href="/newGame" class="buttoned">ADD NEW GAME</a>
+        </div>
+        <div class="buttonit">
+          <a href="/gamesForCodes" class="buttoned">ADD NEW CODES</a>
+        </div>
+      </div>
 
-	<p th:if="${error}" style="color: red;"
-		th:text="${error}"></p>
-	<p th:if="${success}" style="color: green;"
-		th:text="${success}"></p>
-	<br>
-	<br>
-	<a href="">Low stocks</a>
-	<br>
-	<a href="">Game requests</a>
-	<br>
-	<a href="">Most popular</a>
-	<br>
-	<a href="/newGame">Add a new game</a>
-	<br>
-	<a href="/gamesForCodes">Add codes</a>
-	<br>
-	<a href="">User issues</a>
-	<br>
-	<a href="/logout">Logout</a>
-	<br>
-	<br>
-	<a href="" style="text-decoration: none; color: black;">Explore
-		games</a>
-	<br>
-	<br>
-	<a href="" style="text-decoration: none; color: black;">Purchase
-		History</a>
-	<br>
-	<br>
-	<a href="" style="text-decoration: none; color: black;">Profile</a>
-	<br>
-	<br>
-	<form action="/search" method="post">
-		<input type="text" placeholder="Type game name" required>
-		<button type="submit">Search</button>
-	</form>
+    </div>
 
+  </div>
+  <div class="footer">
+    <div class="topfooter">
+      <img src="images/logo.png" alt="logo" class="footerlogo">
+      <div class="contact">
+        <span>
+          Contact Information
+        </span>
+        <br>
+        <span>
+          Phone: 111111
+        </span>
+        <br>
+        <span>
+          Email: email@email.com
+        </span>
+        <br><br>
+        <img src="images/fbinsta.png" alt="" class="fbinsta">
+      </div>
+      <div class="creators">
+        <span>
+          Website designed by
+        </span>
+        <br>
+        <span>
+          Utsav Kattel & Nilesh Guragain
+        </span>
+      </div>
+    </div>
+
+    <div class="whiteline">
+
+    </div>
+
+    <div class="footerfoot">
+      <span>
+        ©2024 by Gaminator | All rights Reserved |
+      </span>
+    </div>
+
+  </div>
 </body>
 
 </html>

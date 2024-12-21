@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>history</title>
+    <link rel="stylesheet" type="text/css" href="css/history.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="buttons">
+            <img src="images/logo.png" alt="logo" class="logo">
+            <div class="profileshowcase">
+              <img src="images/profile.png" alt="profile" class="profile">
+              <span class="hi">Hi, admin</span>
+            </div>
+            <a href="/logout" class="login">LOGOUT <img src="images/logout.png" alt="" class="logout"> </a>
+        </div>
+    </div>
+<div class="container">
+    <div class="almostsubcontainer">
+        <h2>GAME PURCHASE HISTORY</h2>
+    <div class="sub-container">
+         
+         <table>
+            <thead>
+            <tr>
+                <th>Game Name</th>
+                <th>Company Name</th>
+                <th>Download Link</th>
+                <th>Platform</th>
+                <th>Price</th>
+                <th>Release Date</th>
+                <th>Redeem Codes</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="entry : ${gameRedeemCodesMap}">
+                    <td th:text="${entry.key.name}">Game Name</td>
+                    <td th:text="${entry.key.company}">Company Name</td>
+                    <td>
+                        <a th:href="${entry.key.downloadLink}" th:text="${entry.key.downloadLink}" style="color:white;"> Download Link</a>
+                    </td>
+                    <td th:text="${entry.key.platform}">Platform</td>
+                    <td th:text="'Rs. ' + ${entry.key.price}">Price</td>
+                    <td th:text="${entry.key.releaseDate}">Release Date</td>
+                    <td>
+                        <pre th:each="code : ${entry.value}" th:text="'\'' + ${code} + '\''"></pre>
+                    </td>
+                </tr>
+            </tbody>
+         </table>
+    </div>
+    </div>
+</div>
+    
+    <div class="footer">
+        <div class="topfooter">
+            <img src="images/logo.png" alt="logo" class="footerlogo">
+            <div class="contact">
+                <span>
+                    Contact Information
+                </span>
+                <br>
+                <span>
+                    Phone: 111111
+                </span>
+                <br>
+                <span>
+                    Email: email@email.com
+                </span>
+                <br><br>
+                <img src="images/fbinsta.png" alt="" class="fbinsta">
+            </div>
+            <div class="creators">
+                <span>
+                    Website designed by
+                </span>
+                <br>
+                <span>
+                    Utsav Kattel & Nilesh Guragain
+                </span>
+            </div>
+        </div>
+
+        <div class="whiteline">
+
+        </div>
+        
+        <div class="footerfoot">
+            <span>
+                ©2024 by Gaminator | All rights Reserved |
+            </span>
+        </div>
+
+    </div>
+</body>
+
+</html>

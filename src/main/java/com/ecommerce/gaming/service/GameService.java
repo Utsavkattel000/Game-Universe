@@ -15,11 +15,15 @@ public interface GameService {
 	void save(Game game);
 
 	List<Game> getAllGames();
+	
+	List<Game> getAvailableGames();
 
 	Game getById(Long id);
 
 	String saveImage(MultipartFile image, String name) throws IOException;
 
 	byte[] getImage(String imagepath) throws IOException;
+	
+	Game getGameByName(String name);
 
 }

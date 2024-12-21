@@ -10,4 +10,6 @@ public interface GameRepository extends  JpaRepository<Game, Long>{
 
 	Boolean existsByNameAndReleaseDate(String name,LocalDate releaseDate);
 	
+	Game getByName(String name);
+	
 }

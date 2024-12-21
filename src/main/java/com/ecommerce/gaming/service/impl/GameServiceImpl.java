@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -63,5 +64,24 @@ public class GameServiceImpl implements GameService{
 	public byte[] getImage(String imagepath) throws IOException {
 		Path filePath = Paths.get(STORAGE_PATH, imagepath);
         return Files.readAllBytes(filePath);
+	}
+
+	@Override
+	public List<Game> getAvailableGames() {
+		List<Game> games=gamerepo.findAll();
+		List<Game> availableGame = new ArrayList<>();
+		for (Game game : games) {
+			if (game.getRedeemCodes() != null && 
+		            game.getRedeemCodes().stream().anyMatch(code -> "new".equals(code.getStatus()))) {
+		            availableGame.add(game);
+		        }
+		}	
+		return availableGame;
+	}
+
+	@Override
+	public Game getGameByName(String name) {
+		
+		return gamerepo.getByName(name);
 	}
 }

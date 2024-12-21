@@ -1,50 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Add New Game</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>newGame</title>
+    <link rel="stylesheet" type="text/css" href="css/newGame.css">
 </head>
+
 <body>
-    <h1>Add New Game</h1>
-    <form action="/newGame" method="post" enctype="multipart/form-data">
-        <label for="game-name">Game Name:</label>
-        <input type="text" id="game-name" name="name" placeholder="Type game name" required>
-        <br><br>
-        
-        <label for="company">Company:</label>
-        <input type="text" id="company" name="company" placeholder="Company" required>
-        <br><br>
+    <div class="navbar">
+        <img src="images/logo.png" alt="logo" class="logo">
+    </div>
+    <div class="maincontainer">
+        <br>
+        <h2>ADD NEW GAME</h2>
+        <form action="/newGame" method="post" enctype="multipart/form-data">
+            <div class="sub-container">
+                <div class="firstcolumn">
+                    <div class="input">
+                        <label for="name">Game Name</label>
+                        <br>
+                        <input type="text" name="name" id="name" required class="inputfield">
+                        <br><br>
+                    </div>
+                    <div class="input">
+                        <label for="company">Company</label>
+                        <br>
+                        <input type="text" name="company" id="company" required class="inputfield">
+                        <br><br>
+                    </div>
+                    <div class="input">
+                        <label for="releasedate">Release Date</label>
+                        <br>
+                        <input type="date" name="releaseDate" id="releasedate" required class="inputfielddate">
+                        <br><br>
+                    </div>
+                    <div class="input">
+                        <label for="price">Price</label>
+                        <br>
+                        <input type="text" name="price" id="price" required class="inputfield">
+                        <br><br>
+                    </div>
+                    <div class="input">
+                        <label for="description">Description</label>
+                        <br>
+                        <textarea name="description" id="description" required class="description"></textarea>
+                    </div>
+                </div>
+                <div class="secondcolumn">
+                    <div class="input">
+                        <label for="genre">Genre</label>
+                        <br>
+                        <input type="text" name="genre" id="genre" required class="inputfield">
+                        <br><br>
+                    </div>
+                    <div class="input">
+                        <label for="size">Size in GB</label>
+                        <br>
+                        <input type="number" name="size" id="size" required class="inputfield">
+                        <br><br>
+                    </div>
+                    <div class="input">
+                        <label for="platform">Platform</label>
+                        <br>
+                        <input type="text" name="platform" id="platform" required class="inputfield">
+                        <br><br>
+                    </div>
+                    <div class="input">
+                        <label for="downloadlink">Download/Redeem Link</label>
+                        <br>
+                        <input type="url" name="downloadLink" id="downloadlink" required class="inputfield">
+                        <br><br>
+                    </div>
+                    <div class="input">
+                        <label for="thumbnail">Thumbnail</label>
+                        <br>
+                        <input type="file" accept="image/*" id="thumbnail" name="thumbnail" required>
+                        <br><br>
+                        <button type="submit" class="button">ADD GAME</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="footer">
+        <div class="topfooter">
+            <img src="images/logo.png" alt="logo" class="footerlogo">
+            <div class="contact">
+                <span>
+                    Contact Information
+                </span>
+                <br>
+                <span>
+                    Phone: 111111
+                </span>
+                <br>
+                <span>
+                    Email: email@email.com
+                </span>
+                <br><br>
+                <img src="images/fbinsta.png" alt="" class="fbinsta">
+            </div>
+            <div class="creators">
+                <span>
+                    Website designed by
+                </span>
+                <br>
+                <span>
+                    Utsav Kattel & Nilesh Guragain
+                </span>
+            </div>
+        </div>
 
-        <label for="release-date">Release Date:</label>
-        <input type="date" id="release-date" name="releaseDate" required>
-        <br><br>
+        <div class="whiteline">
 
-        <label for="price">Price:</label>
-        <input type="number" id="price" name="price" placeholder="Price" required>
-        <br><br>
+        </div>
 
-        <label for="genre">Genre:</label>
-        <input type="text" id="genre" name="genre" placeholder="Genre" required>
-        <br><br>
+        <div class="footerfoot">
+            <span>
+                ©2024 by Gaminator | All rights Reserved |
+            </span>
+        </div>
 
-        <label for="size">Size (GB):</label>
-        <input type="number" id="size" name="size" placeholder="Game size in GB" step="0.1" required>
-        <br><br>
-
-        <label for="platform">Platform:</label>
-        <input type="text" id="platform" name="platform" placeholder="Platform (e.g., Steam, PS)" required>
-        <br><br>
-
-        <label for="download-link">Download/Redeem Link:</label>
-        <input type="url" id="download-link" name="downloadLink" placeholder="Official download/redeem link" required>
-        <br><br>
-
-        <label for="thumbnail">Thumbnail:</label>
-        <input type="file" accept="image/*" id="thumbnail" name="thumbnail" required>
-        <br><br>
-
-        <button type="submit">Add Game</button>
-    </form>
+    </div>
 </body>
+
 </html>

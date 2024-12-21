@@ -26,11 +26,14 @@
 				href="/home" class="homebutton">Home</a> <a href="/about"
 				class="aboutus">About Us</a> <a href="/contact" class="contactus">Contact
 				Us</a>
-			<div class="searcharea">
-				<input type="text" class="search" placeholder="Search..."></input> <a
-					href="/search"><img src="images/search.png"
-					class="searchicon" alt="search"></a>
-			</div>
+			<form id="searchForm" action="/search" method="get">
+				<div class="searcharea">
+					<input type="text" class="search" placeholder="Search..." name="gamename"></input> 
+					<a href="javascript:void(0);" onclick="document.getElementById('searchForm').submit();"> 
+						<img src="images/search.png" class="searchicon" alt="search">
+					</a>
+				</div>
+			</form>
 		</div>
 	</div>
 

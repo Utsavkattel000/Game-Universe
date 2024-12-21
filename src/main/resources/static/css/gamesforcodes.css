@@ -123,7 +123,9 @@ body::-webkit-scrollbar-corner {
 	border-radius: 49px;
 	background-color: rgba(107, 17, 130, 1);
 }
-
+.dov{
+	min-height:403px;
+}
 .games-container {
 	display: flex;
 	align-items: center;
