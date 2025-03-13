@@ -11,7 +11,7 @@ Welcome to **Game Universe**, a platform designed to bring seamless game purchas
 
 ## 🛠️ Tech Stack
 **Backend:**
-- 🌿 Spring Boot – RESTful API and business logic
+- 🌿 Spring Boot – Backend
 - 🛢️ MySQL – Database for storing user and game data
 - 🔗 JPA Repository – Database connection and ORM
 
